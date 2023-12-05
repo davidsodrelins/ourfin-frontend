@@ -1,4 +1,3 @@
-import React, { Fragment } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import styled from 'styled-components';
@@ -13,7 +12,6 @@ const CarouselContainer = () => {
     { src: "https://picsum.photos/1000?grayscale&random=5", caption: "O aplicativo promove a gestão colaborativa das finanças familiares, permitindo que membros da família acessem e contribuam para um orçamento compartilhado. Isso aumenta a transparência e melhora a administração das finanças domésticas." },
     { src: "https://picsum.photos/1000?grayscale&random=6", caption: "O OurFin fornece integração bancária segura, importando automaticamente transações de contas e cartões de crédito. A funcionalidade economiza tempo e aumenta a precisão, mantendo os dados protegidos por criptografia avançada." },
     { src: "https://picsum.photos/1000?grayscale&random=7", caption: "Compatível com dispositivos móveis, o OurFin oferece gerenciamento financeiro em qualquer lugar. Seus aplicativos para Android e iOS permitem aos usuários acessar informações financeiras, registrar gastos e receber notificações em tempo real, facilitando o controle financeiro diário." },
-    // Adicione outros slides aqui
   ];
 
 
@@ -41,7 +39,7 @@ const StyledCarousel = styled(Carousel)`
     bottom: 40px;
     text-align: left;
     padding: 40px;
-    font-size: 35px
+    font-size: 25px
   }
 
   .carousel-slider .control-dots {

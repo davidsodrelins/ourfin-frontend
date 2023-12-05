@@ -33,7 +33,7 @@ export const themeDark = {
 };
 
 
-export const theme = 1 === 1 ? themeLight : themeDark;
+export const theme = (12-11) === 1 ? themeLight : themeDark;
 
 export const GlobalStyles = createGlobalStyle`
   body {
@@ -66,15 +66,13 @@ export const Input = styled.input`
 `;
 
 export const ButtonSecondary = styled.button`
-  padding: 10px;
-  margin-top: 10px;
+  padding: 10px 15px;
   background-color: ${theme.primaryGreen};
   color: ${theme.white};
   border: none;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-
 
   &:hover {
     background-color: ${theme.secondaryGreen};
@@ -84,7 +82,9 @@ export const ButtonSecondary = styled.button`
 
 export const Button = styled.button`
   padding: 10px;
-  margin-top: 10px;
+  margin: 10px;
+  width: 100%;
+
   background-color: ${theme.primaryBlue};
   color: ${theme.white};
   border: none;

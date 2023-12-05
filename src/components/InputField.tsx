@@ -4,15 +4,17 @@ import { theme } from '../styles/GlobalStyles';
 
 interface InputFieldProps {
     name: string;
-    placeholder?: string;
     label: string;
     type: string;
     value: string;
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
+interface LabelProps {
+    $isFocused: boolean;
+}
 
-const InputField: React.FC<InputFieldProps> = ({ name, placeholder, label, type, value, onChange }) => {
+const InputField: React.FC<InputFieldProps> = ({ name, label, type, value, onChange }) => {
     const [isFocused, setIsFocused] = useState(false);
 
     const handleFocus = () => {
@@ -25,7 +27,7 @@ const InputField: React.FC<InputFieldProps> = ({ name, placeholder, label, type,
 
     return (
         <InputContainer>
-            <Label isFocused={isFocused || value !== ''}>{label}</Label>
+            <Label $isFocused={isFocused || value !== ''}>{label}</Label>
             <Input
                 name={name}
                 type={type}
@@ -35,7 +37,6 @@ const InputField: React.FC<InputFieldProps> = ({ name, placeholder, label, type,
                 onBlur={handleBlur}
             />
         </InputContainer>
-
     );
 };
 
@@ -43,17 +44,15 @@ export default InputField;
 
 const InputContainer = styled.div`
   position: relative;
-  margin-bottom: 20px;
-  margin-top: 3px;
-
+  margin: 10px;
 `;
 
 const Input = styled.input`
-padding: 8px;
-background-color: transparent;
-border: 1px solid ${theme.primaryBlue};
-border-radius: 4px;
-width: 100%;
+  padding: 8px;
+  background-color: transparent;
+  border: 1px solid ${theme.primaryBlue};
+  border-radius: 4px;
+  width: 100%;
 
   &:focus-visible {
     outline: ${theme.primaryBlue} auto 1px;
@@ -64,14 +63,15 @@ width: 100%;
   }
 `;
 
-const Label = styled.label<{ isFocused: boolean }>`
-  position: absolute;
-  top: ${({ isFocused }) => isFocused ? '-20px' : '5px'};
-  z-index: -1;
-  left: ${({ isFocused }) => isFocused ? '0px' : '10px'};;
-  padding: 0 4px;
-  font-size: 0.75rem;
-  color: ${theme.textPrimary};
-  transition: top 0.3s ease-in-out, font-size 0.3s ease-in-out, opacity 0.3s ease-in-out, left 0.3s ease-in-out;
-  font-size: ${({ isFocused }) => isFocused ? '0.75rem' : '1rem'};
+const Label = styled.label<LabelProps>`
+    border-radius: 2px;
+    position: absolute;
+    background: ${theme.white}; 
+    top: ${({ $isFocused }) => $isFocused ? '-10px' : '5px'};
+    z-index:  ${({ $isFocused }) => $isFocused ? '0' : '-1'};
+    left: ${({ $isFocused }) => $isFocused ? '10px' : '5px'};
+    padding: 0 4px;
+    font-size: ${({ $isFocused }) => $isFocused ? '0.75rem' : '1rem'};
+    color: ${theme.textPrimary};
+    transition: top 0.3s ease-in-out, font-size 0.3s ease-in-out, opacity 0.3s ease-in-out, left 0.3s ease-in-out;
 `;
