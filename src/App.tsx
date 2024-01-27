@@ -34,7 +34,7 @@ const App: React.FC = () => {
                   <a href="https://www.facebook.com"><FaFacebook color={theme.primaryBlue} /></a>
                   <a href="https://www.whatsapp.com"><FaWhatsapp color={theme.primaryBlue} /></a>
                 </SocialMediaIcons>
-                <CopyrightText>© 2023 OurFin</CopyrightText>
+                <CopyrightText>© 2024 OurFin</CopyrightText>
               </Footer>
             </>
           ) : (
